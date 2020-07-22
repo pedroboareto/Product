@@ -1,0 +1,37 @@
+---
+title: "Project 3"
+author: "Boareto"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Challenge
+1. Write a shiny application with associated supporting documentation. The documentation should be thought of as whatever a user will need to get started using your application.
+2. Deploy the application on Rstudio's shiny server
+3. Share the application link by pasting it into the provided text box
+4. Share your server.R and ui.R code on github
+
+## Tha is about
+
+The Galton Heights dataset has used to predict a child's height based on the gender and parent's average height.
+
+## Plot
+In the scatterplot below are represented the data and the predict fit line
+```{r plot}
+library(HistData)
+library(ggplot2)
+data(GaltonFamilies)
+gf <- GaltonFamilies
+gf$midparentheight=(gf$father+gf$mother)/2
+gsplt2 <- ggplot(data = gf, aes(x = childHeight, y = midparentheight)) +
+  geom_point(aes(colour = gender)) +
+  geom_smooth(size = .5)
+gsplt2
+```
+
+## THANKS
+more details: https://github.com/pedroboareto/Product.git
